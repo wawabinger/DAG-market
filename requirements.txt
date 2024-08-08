@@ -1,0 +1,12 @@
+matplotlib==3.8.3
+matplotlib-inline==0.1.6
+networkx==3.2.1
+numpy==1.26.2
+opacus==1.4.1
+scikit-learn==1.4.1.post1
+tenseal==0.3.14
+torch==2.1.2
+torch_geometric==2.5.3
+torcheval==0.0.7
+torchvision==0.16.2
+

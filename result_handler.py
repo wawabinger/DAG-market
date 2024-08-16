@@ -17,9 +17,9 @@ class Result_handler(object):
         self.reward2client = {}
 
     def show_acc(self, client):
-        print("客户端{}的每轮 准确率为".format(client.id))
+        print("Client {} accuracy at each round: ".format(client.id))
         print(self.clients_acc[client.id])
 
     def show_loss(self, client):
-        print("客户端{}的每轮 loss为".format(client.id))
+        print("Client{} loss at each round:".format(client.id))
         print(self.clients_loss[client.id])

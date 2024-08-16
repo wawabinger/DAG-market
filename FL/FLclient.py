@@ -17,9 +17,10 @@ class clientDAG(Client):
         self.trainloader = self.load_train_data()
         num_batches = len(self.trainloader)
         self.train_samples = num_batches * self.batch_size
-        print("客户端 {} 初始化".format(self.id))
+        print("Client {} initialized".format(self.id))
 
     def train(self):
+        print("Client {} starts training\n".format(self.id))
         strat_time = time.time()
         trainloader = self.load_train_data()
         num_batches = len(trainloader)
@@ -85,7 +86,7 @@ class clientDAG(Client):
         old_model = copy.deepcopy(self.model)
         self.model = self.model.to(self.device)
         self.train()
-        print("客户端 {} 开始缩放\n".format(self.id))
+        print("Client {} launch rescaling attack\n".format(self.id))
         noise = 10
         for grad in self.model.parameters():
             grad.data *= (noise * 2) * torch.rand(size=grad.shape,
@@ -99,7 +100,7 @@ class clientDAG(Client):
         self.updated = copy.deepcopy(updated_flattened)
 
     def sign_randomnizing_train(self):
-        print("客户端 {} 开始符号随机\n".format(self.id))
+        print("Client {} launch sign_randomnizing attack\n".format(self.id))
         old_model = copy.deepcopy(self.model)
         self.train()
         for grad in self.model.parameters():
@@ -112,7 +113,7 @@ class clientDAG(Client):
         self.updated = copy.deepcopy(updated_flattened)
 
     def label_flip_train(self, before_label, after_label):
-        print("客户端 {} 开始标签翻转\n".format(self.id))
+        print("Client {} launch label_flip attack\n".format(self.id))
         old_model = copy.deepcopy(self.model)
         self.model.to(self.device)
         self.model.train()

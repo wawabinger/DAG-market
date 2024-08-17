@@ -5,13 +5,13 @@ import random
 import torch
 import torchvision
 import torchvision.transforms as transforms
-from utils.dataset_utils import check, separate_data, split_data, save_file
+from dataset_utils import check, separate_data, split_data, save_file
 
 
 random.seed(1)
 np.random.seed(1)
 num_clients = 20
-dir_path = "MNIST/"
+dir_path = "../MNIST/"
 
 
 # Allocate data to users

@@ -3,7 +3,7 @@ import os
 import sys
 import random
 import torchtext
-from utils.dataset_utils import check, separate_data, split_data, save_file
+from dataset_utils import check, separate_data, split_data, save_file
 from torchtext.data.utils import get_tokenizer
 from torchtext.vocab import build_vocab_from_iterator
 
@@ -12,7 +12,7 @@ random.seed(1)
 np.random.seed(1)
 num_clients = 20
 max_len = 200
-dir_path = "AGNews/"
+dir_path = "../AGNews/"
 
 
 # Allocate data to users

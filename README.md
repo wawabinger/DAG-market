@@ -29,5 +29,5 @@ python generate_Cifar10.py noniid - dir # for practical noniid and unbalanced sc
 ```
 - Run the simulation:
 ```
-python3 main.py -n_clients 20  -model CNN -dataset Cifar10 -round 200 -walk greedy 
+python main.py -n_clients 20  -model CNN -dataset Cifar10 -round 200 -walk greedy 
 ```

@@ -10,7 +10,7 @@ pip install -r requirements.txt
 ```
 - prepare datasets by running the following command, take Cifar-10 as an example:
 ```
-cd ./dataset/generator
+cd ./dataset/Generator
 # python generate_Cifar10.py noniid - pat # for pathological noniid and unbalanced scenario
 python generate_Cifar10.py noniid - dir # for practical noniid and unbalanced scenario
 ```

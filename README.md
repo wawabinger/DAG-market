@@ -4,10 +4,7 @@ This is the implementation of the paper "Pay It Forward: A Sustainable, Fair, an
 
 ## Set up
 - Create a virtual environment
-- Install the required packages by running the following command:
-```
-pip install -r requirements.txt
-```
+- Install the required packages: matplotlib, numpy, torch, torchvision, torch_geometric, tenseal, opacus, matplotlib-inline, ujson
 - prepare datasets by running the following command, take Cifar-10 as an example:
 ```
 cd ./dataset/Generator

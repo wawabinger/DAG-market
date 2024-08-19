@@ -229,12 +229,10 @@ if __name__ == "__main__":
     parser.add_argument('-attack_type', type=str,
                         help='ATTACK TYPE', default='rescaling')
     parser.add_argument('-attack_ratio', type=float,
-                        help='ATTACK DENSITY', default=0.3)
+                        help='ATTACK DENSITY', default=0)
     parser.add_argument('-round', type=int, help='TRAINING ROUND', default=5)
     parser.add_argument("-walk", type=str,
                         help="WALKING STRATEGY", default="greedy")
-    parser.add_argument("-noniid", type=str,
-                        help="HETEROGENITY", default="pra")
     parser.add_argument(
         "-agg", type=str, help="AGGREGATION METHOD", default="similar")
     args = parser.parse_args()

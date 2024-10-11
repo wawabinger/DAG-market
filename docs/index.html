@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supplementary Material: Greedy Random Walk Algorithm</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1,
+        h2 {
+            color: #2c3e50;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #34495e;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .theorem {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-left: 5px solid #4CAF50;
+        }
+
+        .proof {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #f1f8e9;
+            border-left: 5px solid #8BC34A;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Pay it Forward: A Sustainable, Fair, and Personalized Data Market via Federated Learning</h1>
+
+
+    <div class="subtitle">1. Theoretical proofs of greedy properties</div>
+    <p>To solve the above problem, we design a greedy random walk algorithm (GRWA) to greedily select models with lower
+        prices and higher similarity. But first, we prove that this problem can be solved using a greedy algorithm if it
+        satisfies the following property.</p>
+    <div class="theorem">
+        <h2>Theorem 1 (Greedy choice property)</h2>
+        <p>The optimal solution to the problem can be achieved by making a locally optimal choice at each step.</p>
+    </div>
+
+    <div class="proof">
+        <h3>Proof:</h3>
+        <p>\(\frac{P(v_{i+1})}{C(v_{i+1})}\) can be represented by \(P(v_{i+1}) \cdot C^{-1}(v_{i+1})\). Let the current
+            path be \(\varPhi = (v_1, v_2, \dots, v_i)\). When selecting the next node \(v_{i+1}\), we choose the node
+            that maximizes \(P(v_{i+1}) \cdot C^{-1}(v_{i+1})\). Suppose there exists another path \(\varPhi' = (v_1',
+            v_2', \dots, v_i', v_{i+1}')\) such that \(\sum_{v_j' \in \varPhi'} P(v_{j}') \cdot C^{-1}(v_{j}') >
+            \sum_{v_j \in \varPhi \cup \{v_{i+1}\}} P(v_{j}) \cdot C^{-1}(v_{j})\).</p>
+
+        <p>If \(v_{i+1}' \neq v_{i+1}\), according to the definition of greedy choice, we have \(P(v_{i+1}) \cdot
+            C^{-1}(v_{i+1}) \le P(v_{i+1}') \cdot C^{-1}(v_{i+1}')\). Therefore,</p>
+
+        <p>
+            \[
+            \begin{aligned}
+            \sum_{v_j \in \varPhi} P(v_{j}) \cdot C^{-1}(v_{j}) + P(v_{i+1}) \cdot C^{-1}(v_{i+1}) \\
+            \geq \sum_{v_j \in \varPhi} P(v_{j}) \cdot C^{-1}(v_{j}) + P(v_{i+1}') \cdot C^{-1}(v_{i+1}')
+            \end{aligned}
+            \]
+        </p>
+
+        <p>Thus,</p>
+
+        <p>
+            \[
+            \sum_{v_j \in \varPhi} P(v_{j}) \cdot C^{-1}(v_{j}) > \sum_{v_j' \in \varPhi'} P(v_{j}') \cdot
+            C^{-1}(v_{j}')
+            \]
+        </p>
+
+        <p>This contradicts the assumption. Therefore, selecting the node that minimizes \(P(v_{i+1}) \cdot
+            C^{-1}(v_{i+1})\) is the correct locally optimal choice.</p>
+    </div>
+
+    <div class="theorem">
+        <h2>Theorem 2</h2>
+        <p>An optimal solution to the problem contains optimal solutions to its subproblems.</p>
+    </div>
+
+    <div class="proof">
+        <h3>Proof:</h3>
+        <p>Let \(\varPhi^* = (v_1, v_2, \dots, v_k)\) be the globally optimal path. Suppose its subpath \(\varPhi' =
+            (v_1', v_2', \dots, v_i')\) is also the optimal path for the corresponding subproblem.</p>
+
+        <p>For any node \(v_{i+1}\), after choosing the node that minimizes \(P(v_{i+1}) \cdot C^{-1}(v_{i+1})\), we
+            have:</p>
+
+        <p>
+            \[
+            \begin{aligned}
+            \sum_{v_j \in \varPhi'} P(v_j) \cdot C^{-1}(v_j) + P(v_{i+1}) \cdot C^{-1}(v_{i+1})\\
+            = \sum_{v_j \in \varPhi^*} P(v_j) \cdot C^{-1}(v_j).
+            \end{aligned}
+            \]
+        </p>
+
+        <p>Thus,</p>
+
+        <p>
+            \[
+            \begin{aligned}
+            \sum_{v_j' \in \varPhi'} P(v_j') \cdot C^{-1}(v_j') + P(v_{i+1}) \cdot C^{-1}(v_{i+1})\\
+            = \sum_{v_j \in \varPhi^*} P(v_j) \cdot C^{-1}(v_j).
+            \end{aligned}
+            \]
+        </p>
+
+        <p>Therefore, \(\varPhi^* = \varPhi' \cup \{v_{i+1}\}\) is part of the globally optimal path. Thus, the optimal
+            solution to the problem contains the optimal solutions to its subproblems.</p>
+    </div>
+
+    <script>
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    </script>
+</body>
+
+</html>
